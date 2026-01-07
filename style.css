@@ -1,0 +1,462 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--forest-green);
+    line-height: 1.6;
+    margin: 0;
+
+    /* FULL SCREEN BACKGROUND IMAGE SETTINGS */
+    background-image: 
+        /* 1. The Overlay: This adds a white/green tint so text is easy to read */
+        linear-gradient(rgba(245, 247, 245, 0.85), rgba(245, 247, 245, 0.85)),
+        
+        /* 2. Your Local Image */
+        url('Screenshot 2025-12-11 181158.png'); 
+
+    background-size: cover;       /* Covers the whole screen */
+    background-position: center;  /* Centers the image */
+    background-attachment: fixed; /* Keeps the image still while you scroll */
+    background-repeat: no-repeat;
+}
+
+
+/* =======================================================
+   CLEANAIR AQI - PROFESSIONAL DARK GREEN THEME
+   ======================================================= */
+
+/* --- 1. COLOR PALETTE (CSS Variables) --- */
+:root {
+    /* Primary Dark Greens */
+    --forest-green: #003313;   /* Headers, Nav Background */
+    --pine-green:   #083d1c;   /* Buttons, Active Links */
+    --hunter-green: #355e3b;   /* Hover States, Secondary Text */
+    
+    /* Accents & Borders */
+    --moss-green:   #4f7942;   /* Borders, Icons */
+    --sage-green:   #8fbc8f;   /* Subtle Accents */
+    --mint-soft:    #e8f5e9;   /* Very light green background */
+
+    /* Neutrals */
+    --white:        #ffffff;   /* Card Backgrounds, Text on Green */
+    --off-white:    #f5f7f5;   /* Main Page Background */
+    --cream:        #fffdd0;   /* Highlight Sections */
+    --gray-green:   #a9b8a9;   /* Subtle Borders */
+    
+    /* Shadows */
+    --shadow:       0 4px 12px rgba(8, 61, 28, 0.15);
+}
+
+/* --- 2. GLOBAL RESET & TYPOGRAPHY --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--off-white);
+    color: var(--forest-green);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 3. HEADER & NAVIGATION --- */
+header {
+    background-color: var(--forest-green);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    background-color: var(--pine-green);
+    color: var(--white);
+    border-bottom: 2px solid var(--sage-green);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* --- 4. LAYOUT & SECTIONS --- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 80vh;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--mint-soft);
+    border-bottom: 1px solid var(--sage-green);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: var(--pine-green);
+}
+
+.card-section {
+    margin-bottom: 40px;
+}
+
+.card-section h2 {
+    border-left: 5px solid var(--hunter-green);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    color: var(--forest-green);
+}
+
+/* --- 5. CARDS & CONTAINERS --- */
+.card-layout, .graphs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* General Card Style */
+.data-card, .card, .aqi-card, .steps-card, .critical-info, .pollutant-card {
+    background: var(--white);
+    border: 1px solid var(--gray-green);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.data-card:hover, .pollutant-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Special Case: Hidden elements */
+.hidden {
+    display: none;
+}
+
+/* --- 6. FORMS & INPUTS --- */
+.search-container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+input[type="text"], select {
+    padding: 12px;
+    border: 1px solid var(--moss-green);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    min-width: 200px;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: var(--forest-green);
+    box-shadow: 0 0 0 3px rgba(79, 121, 66, 0.2);
+}
+
+/* Buttons */
+button {
+    background-color: var(--pine-green);
+    color: var(--white);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--hunter-green);
+}
+
+/* --- 7. SPECIFIC PAGE STYLES --- */
+
+/* Air Pollution Page Cards */
+#real-time-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.pollutant-card h3 {
+    text-align: center;
+    color: var(--pine-green);
+    border-bottom: 2px solid var(--sage-green);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.level {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--forest-green);
+}
+
+/* Symptom Checker (Asthma Page) */
+.form-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-layout label {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.question {
+    background-color: var(--mint-soft);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--moss-green);
+}
+
+.question label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Result Box Styling */
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Solutions Page */
+.plant-list {
+    list-style: none;
+}
+
+.plant-list li {
+    background: var(--white);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-left: 5px solid var(--sage-green);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+blockquote.critical-info {
+    border-left: 5px solid #d32f2f; /* Red for emergency */
+    background-color: #ffebee;
+}
+
+/* --- 8. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--pine-green);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    input[type="text"], select, button {
+        width: 100%;
+    }
+}
+/* ==============================================
+   Personal Symptom Tracker (AQI vs. Severity)
+   ============================================== */
+
+/* The main container for the tracker */
+.aqi-graph {
+    background-color: var(--white);       /* Clean white background */
+    border: 1px solid var(--gray-green);  /* Subtle green border */
+    border-radius: 12px;                  /* Rounded corners */
+    padding: 30px;                        /* Spacing inside the card */
+    box-shadow: var(--shadow);            /* Soft shadow for depth */
+    margin: 40px auto;                    /* Spacing outside */
+    max-width: 900px;                     /* Prevent it from getting too wide */
+    text-align: center;                   /* Center the title */
+}
+
+/* The Heading */
+.aqi-graph h2 {
+    color: var(--pine-green);             /* Dark Pine Green text */
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Adds a small decorative underline to the title */
+.aqi-graph h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--sage-green);  /* Light Sage accent */
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* The Chart Canvas */
+#aqiChart {
+    background-color: var(--mint-soft);   /* Very light mint background behind chart */
+    border: 1px dashed var(--moss-green); /* Dashed border for technical look */
+    border-radius: 8px;
+    padding: 15px;                        /* Spacing between border and lines */
+    
+    /* Responsive sizing */
+    width: 100% !important;
+    height: auto !important;
+    max-height: 450px;                    /* Restrict height on large screens */
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .aqi-graph {
+        padding: 15px;
+    }
+    
+    .aqi-graph h2 {
+        font-size: 1.4rem;
+    }
+}
+/* ==============================================
+   RADAR CHART SIZING
+   ============================================== */
+
+#radar-box {
+    max-width: 500px;    /* Limits the width so it's not huge */
+    width: 90%;          /* Ensures it fits on mobile screens */
+    margin: 40px auto;   /* Centers the box horizontally (Top/Bottom 40px, Left/Right Auto) */
+    display: block;      /* Ensures it behaves like a block for centering */
+}
+
+/* Optional: Ensure the canvas inside doesn't overflow */
+#radarChart {
+    max-height: 500px;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 900px; /* Max size for desktop view */
+    position: relative;
+    border-radius: 8px;
+}
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid;
+    animation: fadeIn 0.5s ease-in;
+}
+.form-layout label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-layout label:has(input:checked) {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}

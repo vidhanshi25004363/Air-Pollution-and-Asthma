@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+         <nav class="navbar">
+    <div class="logo">
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; ">
+            <img src="Gemini_Generated_Image_2zysug2zysug2zys.png" alt="Vayu Logo" style="height: 40px; width: auto;">
+            
+            <span>VAYU</span>
+        </a>
+    </div>
+    
+    </nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">AQI</a></li>
+                <li><a href="air_pollution.html">SAFe</a></li>
+                <li><a href="asthma.html">Asthma</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="tools.html" class="active">Tools</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+ <header>
+    <br>
+        <h1 >Asthma Symptom Checker</h1>
+        <p class="subtitle">Check your current breathing condition and get safe suggestions.</p>
+    </header>
+     <div class="container">
+
+        <form id="symptomForm">
+
+            <div class="question">
+                <label>1. Are you experiencing shortness of breath?</label>
+                <select name="breath">
+                    <option value="none">No</option>
+                    <option value="mild">A little</option>
+                    <option value="severe">A lot</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>2. Are you coughing more than usual today?</label>
+                <select name="cough">
+                    <option value="none">No</option>
+                    <option value="mild">Somewhat</option>
+                    <option value="severe">Constant coughing</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>3. Do you feel tightness or pressure in your chest?</label>
+                <select name="chest">
+                    <option value="none">No</option>
+                    <option value="mild">A little tight</option>
+                    <option value="severe">Very tight / painful</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>4. Are you wheezing (whistling sound while breathing)?</label>
+                <select name="wheeze">
+                    <option value="none">No</option>
+                    <option value="mild">Sometimes</option>
+                    <option value="severe">Loud/frequent wheezing</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>5. How often are you using your rescue inhaler today?</label>
+                <select name="inhaler">
+                    <option value="none">Not used</option>
+                    <option value="mild">Used once</option>
+                    <option value="severe">More than once</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>6. Are symptoms getting worse with physical activity?</label>
+                <select name="activity">
+                    <option value="none">No</option>
+                    <option value="mild">A bit harder</option>
+                    <option value="severe">Very difficult</option>
+                </select>
+            </div>
+            <button type="button" onclick="assessSymptoms()">Check Symptoms</button>
+    </form>
+    <div id="risk-results" style="display: none; margin-top: 20px; padding: 20px; border-radius: 10px; background: white; border: 2px solid #ccc; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h3 style="margin-top: 0;">Your Assessment Result:</h3>
+    <p id="risk-level-text" style="font-size: 1.4rem; font-weight: bold; margin: 10px 0;"></p>
+    <p id="medical-help" style="font-size: 1rem; color: #333; line-height: 1.5;"></p>
+    
+    <button type="button" onclick="location.reload()" style="margin-top: 15px; background: #666; font-size: 0.8rem; padding: 8px 15px;">Clear & Reset</button>
+</div>
+</section>
+ <br><br>
+
+        <section class="hotspot-map card-section">
+            <h2>Pollution Hotspots Map (Simulated)</h2>
+                <div class="map-container">
+    <img 
+        src="Screenshot 2025-12-11 140043.png" 
+        alt="Pollution Hotspots Map" 
+        style="width: 50%; height: auto; display: block; margin: 0 auto;"
+    >
+</div>
+
+<br> 
+</section>
+ <section class="resources card-section">
+    <h2>Further Reading & Resources</h2>
+        <style>
+  .resource-container {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center; /* Centers buttons */
+  }
+
+  .interactive-btn {
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: all 0.3s ease; /* This makes the animation smooth */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* The "Interactive" part: What happens on Hover */
+  .interactive-btn:hover {
+    background-color: #007BFF; /* Blue color on hover */
+    color: white;
+    transform: translateY(-3px); /* Moves button up slightly */
+    box-shadow: 0 6px 12px rgba(0,123,255,0.3);
+    border-color: #007BFF;
+  }
+</style>
+
+<div class="resource-container">
+    <a href="https://en.wikipedia.org/wiki/Air_pollution" class="interactive-btn" target="_blank">
+       Read: Air Pollution
+    </a>
+    
+    <a href="https://en.wikipedia.org/wiki/Asthma" class="interactive-btn" target="_blank">
+       Read: Asthma
+    </a>
+    
+    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7503605/" class="interactive-btn" target="_blank">
+       View Scientific Study
+    </a>
+</div>
+    </div>
+
+    <div class="tutorial-video-embed" align="center">
+    <h2>Website Tutorial</h2>
+    <p>Watch this video to quickly learn how to use our platform:</p>
+
+    <iframe 
+        width="400" 
+        height="400" 
+        src="20260107-1421-42.4390396.mp4" 
+        title="Website Tutorial Video Player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+<br><br>
+    <p>
+        Need immediate assistance? Call us directly: 
+        <a href="tel:+15551234567"><strong>7457876850</strong></a>
+    </p>
+    <p>If you have any questions after watching, please contact support.</p>
+</div>
+</main>
+
+    <script src="script.js"></script>
+</body>
+</html>
